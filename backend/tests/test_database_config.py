@@ -1,15 +1,13 @@
-from app.db.session import normalize_database_url
+from sqlalchemy import text
+
+from app.db.session import create_database_engine
 
 
-def test_supabase_postgresql_url_uses_psycopg_driver() -> None:
-    database_url = "postgresql://user:password@example.supabase.co:5432/postgres"
+def test_sqlite_engine_enables_foreign_keys() -> None:
+    database_engine = create_database_engine("sqlite+pysqlite:///:memory:")
 
-    assert normalize_database_url(database_url) == (
-        "postgresql+psycopg://user:password@example.supabase.co:5432/postgres"
-    )
+    with database_engine.connect() as connection:
+        foreign_keys_enabled = connection.scalar(text("PRAGMA foreign_keys"))
 
-
-def test_sqlite_url_is_not_changed() -> None:
-    database_url = "sqlite+pysqlite:///:memory:"
-
-    assert normalize_database_url(database_url) == database_url
+    assert database_engine.dialect.name == "sqlite"
+    assert foreign_keys_enabled == 1

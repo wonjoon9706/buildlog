@@ -1,1 +1,1 @@
-"""Database configuration for Supabase and SQLite3."""
+"""SQLite3 database configuration."""
