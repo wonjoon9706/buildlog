@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     api_prefix: str = "/api"
     database_url: str = "sqlite:///./buildlog.db"
     frontend_origin: str = "http://localhost:5173"
+    session_cookie_name: str = "buildlog_session"
+    session_max_age_seconds: int = 60 * 60 * 24 * 7
+    session_cookie_secure: bool = False
 
     model_config = SettingsConfigDict(
         env_file=".env",
