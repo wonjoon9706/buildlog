@@ -1,0 +1,114 @@
+.setup-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.setup-card {
+  width: min(100%, 680px);
+  padding: 48px;
+  border: 1px solid #dbe5f3;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(30, 64, 175, 0.1);
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 18px 0 16px;
+  color: #14213d;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  margin: 0;
+  color: #52627a;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #475569;
+  background: #f1f5f9;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.status__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.status--connected {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status--connected .status__dot {
+  background: #22c55e;
+}
+
+.status--disconnected {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.status--disconnected .status__dot {
+  background: #ef4444;
+}
+
+.stack-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 32px 0 0;
+}
+
+.stack-list div {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.stack-list dt {
+  margin-bottom: 6px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stack-list dd {
+  margin: 0;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+@media (max-width: 640px) {
+  .setup-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .stack-list {
+    grid-template-columns: 1fr;
+  }
+}
